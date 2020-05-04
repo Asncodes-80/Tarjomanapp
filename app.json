@@ -1,0 +1,57 @@
+{
+  "expo": {
+    "name": "Tarjoman",
+    "slug": "Tarjoman",
+    "privacy": "public",
+    "sdkVersion": "36.0.0",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": [
+      "assets/fonts/AntDesign.ttf",
+      "assets/fonts/Ionicons.ttf",
+      "assets/fonts/*",
+      "node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/*",
+      "node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/AntDesign.ttf",
+      "node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Ionicons.ttf",
+      "assets/image/*",
+      "assets/image/Welcomeban/*",
+      "assets/image/Welcomeban/alllan.png",
+      "assets/image/Welcomeban/darkmode.png",
+      "assets/image/Welcomeban/multiplat.png",
+      "assets/image/LanguageLogo/*",
+      "assets/image/LanguageLogo/cpplogo.png",
+      "assets/image/LanguageLogo/Csharp.png",
+      "assets/image/LanguageLogo/js.png",
+      "assets/image/LanguageLogo/swiftlogo.png"
+
+
+    ],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.2",
+    "orientation": "portrait",
+    "icon": "./assets/image/Tarjomanicon.png",
+    "splash": {
+      "image": "./assets/image/splashinfinite.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "android": {
+      "userInterfaceStyle": "automatic",
+      "package": "com.asnteam.tarjoman",
+      "versionCode": 1
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.asnteam.tarjoman",
+      "buildNumber": "1.0.0",
+      "userInterfaceStyle": "automatic"
+    },
+    "description": ""
+  }
+}
