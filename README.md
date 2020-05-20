@@ -11,9 +11,9 @@ sorry, for now we developed Tarjoman to persian language for Iranian people.
 
 **You can see some screenshots from Tarjoman app:**
 
-![TarjomanHomeScreen](https://github.com/asnTeam/Tarjoman/blob/master/images/Screenshot_1589553412.png)
-![TarjomanCodeScreen](https://github.com/asnTeam/Tarjoman/blob/master/images/Screenshot_1589553421.png)
-![description](https://github.com/asnTeam/Tarjoman/blob/master/images/Screenshot_1589553539.png)
+![TarjomanHomeScreen](https://github.com/asnTeam/Tarjoman/blob/master/images/TarjomanCodeDescription.png)
+![TarjomanCodeScreen](https://github.com/asnTeam/Tarjoman/blob/master/images/TarjomanCodepage.png)
+![description](https://github.com/asnTeam/Tarjoman/blob/master/images/TarjomanHomePage.png)
 ## Section#1
 you can download Tarjoman app for Android or iOS from our site 
 http://tarjomanapp.ir/
