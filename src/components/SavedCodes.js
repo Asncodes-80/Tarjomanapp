@@ -3,28 +3,29 @@ import {View, Text, FlatList, StatusBar, TouchableOpacity, AsyncStorage, StyleSh
 
 const SavedCodes = ({results, statusColor}) =>{
     I18nManager.allowRTL(false);
-    console.log((results))
+    // console.log(results);
     return(
-        <View>
+        <>
             <StatusBar barStyle={statusColor}/>
-            <FlatList
-                data={results}
-                style={{marginTop:10,  marginBottom:60}}
-                renderItem={({item})=>{
-                    
-                    return <View style={{marginVertical:15,
-                     alignSelf:'flex-start', 
-                     borderBottomColor:'black', 
-                     borderBottomWidth:0.5, 
-                     width:Dimensions.get('window').width-20,}}>
-                        <Text style={{textAlign:'left'}}>{item}</Text>
-                    </View>
-                }}
-            />
-        </View>
+            <View style={styles.savedText}>
+            <Text style={{ 
+                textAlign: 'right', 
+                fontSize: 24, 
+                alignSelf: 'flex-end',
+                fontWeight: 'bold'}}>ذخیره شده</Text>
+            </View>
+
+
+        </>
     )
 }
 const styles = StyleSheet.create({
+    savedText:{
+        alignSelf: 'center',
+        alignItems: 'flex-end',
+        marginHorizontal: 30,
+        marginTop: 30, 
 
+    },
 });
 export default SavedCodes;

@@ -7,8 +7,10 @@ I18nManager.isRTL= 'false'
 const WelcomeScreen = ({navigation}) =>{
 
     //function for go to main screen and ending welcome screen
-
     const endTimeForWelcome = async() =>{
+        await AsyncStorage.setItem("codeTheme", "duotoneLight");
+        await AsyncStorage.setItem("font", "18");
+        console.log(await AsyncStorage.getItem("font"));
         await AsyncStorage.setItem("appear","true");
         navigation.navigate('index');
     }

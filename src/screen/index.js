@@ -1,5 +1,5 @@
-import React,{useState} from 'react';
-import {View, Text, TouchableOpacity, SafeAreaView, StyleSheet, I18nManager, AsyncStorage} from 'react-native';
+import React, { useState, useEffect} from 'react';
+import {StyleSheet, I18nManager, AsyncStorage} from 'react-native';
 I18nManager.allowRTL(false);
 I18nManager.forceRTL(false);
 I18nManager.isRTL= 'false'
@@ -34,9 +34,13 @@ const index = ({navigation}) =>{
             const value = await AsyncStorage.getItem("appear");
             if(value === null){
                 navigation.navigate('WelcomeScreen');
+                
+
             }
         }
         componentShower();
+
+
         
         return(
             <AppearanceProvider>

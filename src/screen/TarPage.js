@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     View, 
     StyleSheet, 
@@ -38,8 +38,10 @@ const TarPage = ({
 
         const [results, setResults] = useState([]);
 
+        const [step, setStepper] = useState();
 
-        const mainScreenFun = () =>{
+
+        const mainScreenFun = async() =>{
             setMainScreenShow('flex');
             setSavedScreen('none');
             setSettingScreen('none');
@@ -48,8 +50,15 @@ const TarPage = ({
             setSavedScreenColor('#95989A');
             setSettingScreenColor('#95989A');
             setColorStatus('light-content');
+                const checkStyle = async () =>{
+                    const fontSizeVal = parseInt(await AsyncStorage.getItem("font"));
+                    // set
+                      setStepper(fontSizeVal);
+                      console.log('in a bit  '+ fontSizeVal);
+                }
+                checkStyle();
         }   
-        const SavedScreenFun = () =>{
+        const SavedScreenFun = async() =>{
             setMainScreenShow('none');
             setSavedScreen('flex');
             setSettingScreen('none');
@@ -59,16 +68,28 @@ const TarPage = ({
             setSettingScreenColor('#95989A');
             setColorStatus('dark-content');
             
-            AsyncStorage.getAllKeys().then((key) => {
-                return AsyncStorage.multiGet(key)
-                  .then((result) => {
-                    setResults((result));
-                    console.log(results);
-                  }).catch((e) =>{
-                    console.log(e);
-                  });
-              });
-            
+            // AsyncStorage.getAllKeys().then((key) => {
+            //     return AsyncStorage.multiGet(key)
+            //       .then((result) => {
+            //         setResults((result));
+            //         console.log(results);
+            //       }).catch((e) =>{
+            //         console.log(e);
+            //       });
+            //   });
+            try {
+                const keys = await AsyncStorage.getAllKeys()
+                const itemsArray = await AsyncStorage.multiGet(keys)
+                let object = {}
+                itemsArray.map(item => {
+                  object[`${item[0]}`] = {inCode: `${item[1]}`}
+                  //object[`{code :${item[0]}}`] = item[1] 
+                })
+                console.log(object)
+                setResults(object);
+            }   catch (error) {
+                console.log(error, 'error')
+            }
         } 
         const SettingScreenFun = () =>{
             setMainScreenShow('none');
@@ -86,14 +107,14 @@ const TarPage = ({
             <StatusBar barStyle="dark-content"/>
             {/* Import Lunch page */}
             <View style={{display:`${mainScreenShow}`}}>
-                <MainScreen navigation={navigation} statusColor={statusColor}/> 
+                <MainScreen navigation={navigation} statusColor={statusColor} step={step}/> 
             </View>
             {/* Import saved screen and show */}
             <View style={{display:`${savedScreenShow}`}}>
                 <SavedCode results={results} statusColor={statusColor}/>
             </View>
-            <View style={{display:`${settingScreen}`}}>
-                <SettingScreen statusColor={statusColor}/>
+            <View style={{display:`${settingScreen}`, alignSelf: 'center'}}>
+                <SettingScreen statusColor={statusColor} navigation={navigation}/>
             </View>
 
             {/* navigation bar in bottom */}
@@ -122,8 +143,8 @@ const styles = StyleSheet.create({
    container:{
        flex:1,
        flexDirection:'column',
-       backgroundColor:'#F8F9FD',
-       alignItems:'center'
+       backgroundColor:'#F3F3F8',
+       alignItems: 'flex-end'
    },
    navBar:{
     width: '100%',

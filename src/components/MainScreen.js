@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     View, 
     Text, 
@@ -16,9 +16,6 @@ I18nManager.allowRTL(false);
 I18nManager.forceRTL(false);
 I18nManager.isRTL= 'false'
 
-
-
-
 import { Ionicons } from '@expo/vector-icons';
 //import Components
 import CmdInputer from '../components/CmdInputer'
@@ -35,7 +32,8 @@ const MainScreen = ({
      themeBackCode, 
      themeBackChoser, 
      themeOfStatusBar,
-     statusColor}) =>{
+     statusColor, 
+     step}) =>{
 
     //State and Var placement
     //to get name of programming language to EN and For database set
@@ -62,10 +60,10 @@ const MainScreen = ({
             }    
     }
 
+
     return(
         <View style={styles.container}>
                 <StatusBar barStyle={statusColor} backgroundColor="#F954DE"/>
-            {/* #F57D8C */}
             
             <LinearGradient
                 style={{
@@ -136,7 +134,7 @@ const MainScreen = ({
                 <View style={{borderBottomColor:'#8F8F8F', borderBottomWidth:0.75, marginTop:30, marginHorizontal:-15}}/>                        
                     <Prodata setCmd={setCmd}/>
                 <View style={{borderBottomColor:'#8F8F8F', borderBottomWidth:0.75, marginTop:30, marginHorizontal:-15}}/>
-                    <ABitofInctance/>
+                    <ABitofInctance step={step}/>
 
             </ScrollView>
 

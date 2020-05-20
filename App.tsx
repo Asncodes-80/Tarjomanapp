@@ -1,9 +1,9 @@
 import { createStackNavigator, TransitionPresets } from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
-import { I18nManager } from 'react-native'
-I18nManager.allowRTL(false);
-I18nManager.forceRTL(false);
-I18nManager.isRTL= 'false'
+// import { I18nManager } from 'react-native'
+// I18nManager.allowRTL(false);
+// I18nManager.forceRTL(false);
+// I18nManager.isRTL= 'false'
 
 import index from './src/screen/index.js';
 import MainScreen from '../Tarjoman/src/components/MainScreen.js'
@@ -12,6 +12,7 @@ import SettingScreen from './src/components/SettingScreen.js';
 import WelcomeScreen from './src/components/WelcomeScreen.js'
 import ResultScreen from './src/components/ResultScreen.js'
 import SavedCode from '../Tarjoman/src/components/SavedCodes.js'
+import AppearanceScreen from './src/components/AppearanceScreen.js'
 const navigator = createStackNavigator(
   {
   
@@ -23,7 +24,7 @@ const navigator = createStackNavigator(
      cardOverlayEnabled:true,
      gestureEnabled:true,
      headerTitleAlign:'center',
-     title:'زبان مورد نظرتون رو انتخاب کنید',
+     title:'زبان ها',
 
   }
 
@@ -58,6 +59,17 @@ const navigator = createStackNavigator(
     },
   },
 
+  AppearanceScreen: {
+    screen: AppearanceScreen,
+    navigationOptions:{
+      headerShown: true,
+      cardOverlayEnabled:true,
+      gestureEnabled:true,
+      title:'ویرایشگر',
+      headerTitleAlign:'center',
+      headerTintColor:'#000',
+    },
+  },
 
   index: {
     screen: index,
@@ -79,10 +91,10 @@ const navigator = createStackNavigator(
     },
   },
   SettingScreen:SettingScreen,
-
+  
   SavedCode:{
     screen:SavedCode,
-  }
+  },
 },
 {
   initialRouteName:'index',
