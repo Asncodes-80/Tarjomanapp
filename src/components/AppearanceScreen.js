@@ -10,7 +10,8 @@ const AppearanceScreen = () =>{
     const [step, setStepper] = useState(8);
     const [synHl, setSynHL] = useState(darcula);
     const codeInstance = 'void main() {\n print(`سلام دنیا`)\n }';
-
+    
+    // to get default font 
     useEffect(()=>{
         const checkStyle = async () =>{
             // const colorThemeVal = await AsyncStorage.getItem("codeTheme");
@@ -26,6 +27,7 @@ const AppearanceScreen = () =>{
     const defaultFont = async (value) =>{
         await AsyncStorage.setItem("font", String(value));
     }
+
     return(
         <View style={styles.container}>   
             <ScrollView indicatorStyle={false}>
