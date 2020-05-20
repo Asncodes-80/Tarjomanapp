@@ -50,10 +50,7 @@ const ABitofInstance = ({step}) => {
                                 {item.cmd}
                             </SyntaxHighlighter>
                         </View>
-                    )
-                }}
-            />
-
+                    )}} />
         </>
     )
 }
