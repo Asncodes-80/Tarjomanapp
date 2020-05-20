@@ -25,11 +25,11 @@ Tarjoman developed by **ReactNatve.js** for _Android _and _iOS _app. if you want
 
 * Necessary Prerequires 
    * Use expo cli to run your app in emulator / simpolator or real devices, during publishing this app i used expo-cli 3.20.0 version
-   * If you have windows devices Android Studio 3.5+ and SDK API R or API 29+
-   * If you have MacOS use Xcode 10+ & simulator iOS 12+
-   * Use VS Code or Atom editors to write JS & JSX code, i recommend VS Code
+   * If you have windows devices Android Studio 3.5+ and SDK API R (latest version) or API 20+
+   * If you have MacOS use Xcode 9+ & simulator iOS 9+
+   * Use VS Code or Atom editors to write JS & JSX code, i recommend VS Code😎
 
-This app based on 3 independent modules:
+This app based on 2 independent modules:
 * The mobile app
    * Check out the /app folder for instructions on how to deploy the app to your mobile.
 * The API 
@@ -46,7 +46,7 @@ Request
 | Name | Type | Description                                                                     |
 |------|------|---------------------------------------------------------------------------------|
 |parameter| String |Required, when you want search command like class or function               |
-|lang| Ineger |Each programming language uses an ID desired results from the database           |
+|lang| Integer |Each programming language uses an ID desired results from the database           |
 
 Now you must create Axios module in your repository 
 
