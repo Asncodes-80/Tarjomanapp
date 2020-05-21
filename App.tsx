@@ -46,7 +46,6 @@ const navigator = createStackNavigator(
 
   },
 
-
   WelcomeScreen: {
     screen: WelcomeScreen,
     navigationOptions:{
@@ -55,7 +54,6 @@ const navigator = createStackNavigator(
       cardOverlayEnabled:true,
       gestureEnabled:true,
       // drawerLockMode: 'locked-closed'
-
     },
   },
 
