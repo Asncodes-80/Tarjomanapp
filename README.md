@@ -65,3 +65,7 @@ export default axios.create({
     baseURL:'https://tarjoman-tarjoman.fandogh.cloud/'
 });
 ```
+
+##License
+
+Copyright © 2020 Alireza Soltani Neshan
