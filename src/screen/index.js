@@ -13,19 +13,14 @@ const index = ({navigation}) =>{
      //validating variable for dark/light mode in ios and android
     const themeTextStyle =
         colorScheme === 'light' ? styles.lightThemeText : styles.darkThemeText;
-
     const themeContainerStyle =
         colorScheme === 'light' ? styles.lightContainer : styles.darkContainer;
-
     const themeCmdInput = 
         colorScheme === 'light' ? styles.lightInputer : styles.darkInputer;
-
     const themeBackCode = 
         colorScheme === 'light' ? styles.lightCode : styles.darkCode;
-    
     const themeBackChoser =
-        colorScheme === 'light' ? styles.lightChoser : styles.darkChoser;
-
+       colorScheme === 'light' ? styles.lightChoser : styles.darkChoser;
     const themeOfStatusBar=
         colorScheme === 'light' ? "dark-content": "light-content";
 
