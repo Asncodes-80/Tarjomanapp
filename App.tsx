@@ -1,8 +1,8 @@
 import { createStackNavigator, TransitionPresets } from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
-// import { I18nManager } from 'react-native'
-// I18nManager.allowRTL(false);
-// I18nManager.forceRTL(false);
+import { I18nManager } from 'react-native'
+I18nManager.allowRTL(false);
+I18nManager.forceRTL(false);
 // I18nManager.isRTL= 'false'
 
 import index from './src/screen/index.js';

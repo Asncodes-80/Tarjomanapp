@@ -10,6 +10,7 @@ const AppearanceScreen = () =>{
     const [step, setStepper] = useState(8);
     const [synHl, setSynHL] = useState(darcula);
     const codeInstance = 'void main() {\n print(`سلام دنیا`)\n }';
+
     
     // to get default font 
     useEffect(()=>{
