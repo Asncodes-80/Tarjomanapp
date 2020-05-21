@@ -54,7 +54,7 @@ but before you need to install package axios from npm
 
 `npm install axios --save `
 
-The create folder API and file as TarjomanAPI.js
+Then create folder API and file as TarjomanAPI.js
 
 create code module:
 
