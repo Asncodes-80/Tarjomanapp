@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
     View,
     Text,
@@ -8,12 +8,46 @@ import {
     I18nManager,
     AsyncStorage
 } from 'react-native';
-import SyntaxHighlighter from 'react-native-syntax-highlighter'
 
-import { dark, base16AteliersulphurpoolLight, xonokai, hopscotch } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import SyntaxHighlighter from 'react-native-syntax-highlighter'
+import {
+    darcula,
+    duotoneLight,
+    twilight,
+    atomDark,
+    ghcolors,
+    prism
+} from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const ABitofInstance = ({step}) => {
+
     I18nManager.allowRTL(false);
+
+    const [synHl, setSynHL] = useState();
+    // to get default font
+    useEffect(() => {
+        const checkStyle = async () => {
+            const colorThemeVal = parseInt(await AsyncStorage.getItem("codeTheme"));
+            // switch for adopting number to code theme
+            switch (colorThemeVal) {
+                case 1: setSynHL(duotoneLight);
+                    break;
+                case 2: setSynHL(darcula);
+                    break;
+                case 3: setSynHL(twilight);
+                    break;
+                case 4: setSynHL(atomDark);
+                    break;
+                case 5: setSynHL(ghcolors);
+                    break;
+                case 6: setSynHL(prism);
+                    break;
+            }
+        }
+        checkStyle();
+    }, [])
+
+
     //Create data for important command to search
     const instance = [
         {
@@ -28,7 +62,6 @@ const ABitofInstance = ({step}) => {
         },
     ]
 
-
     return (
         <>
             <Text style={styles.choseLanguageText}>نمونه ای از دستورات</Text>
@@ -36,24 +69,30 @@ const ABitofInstance = ({step}) => {
                 data={instance}
                 keyExtractor={(result) => result.key}
                 vertical
-                style={{ marginTop: 20, marginBottom: 100, marginHorizontal: -10 }}
-                renderItem={({ item }) => {
+                style={{marginTop: 20, marginBottom: 100, marginHorizontal: -10}}
+                renderItem={({item}) => {
                     return (
                         <View>
-                            <Text style={{ marginTop: 10, textAlign: 'right', alignSelf: 'flex-end', marginRight: 20, fontSize: 18, color: 'black' }}>{item.title}</Text>
+                            <Text style={{
+                                marginTop: 10,
+                                textAlign: 'right',
+                                alignSelf: 'flex-end',
+                                marginRight: 20,
+                                fontSize: 18,
+                                color: 'black'
+                            }}>{item.title}</Text>
+
                             <SyntaxHighlighter
                                 language='javascript'
                                 highlighter={"prism" || "hljs"}
-                                style={base16AteliersulphurpoolLight}
-                                fontSize={step}
-                            >
+                                style={synHl}
+                                fontSize={step}>
                                 {item.cmd}
                             </SyntaxHighlighter>
                         </View>
                     )
                 }}
             />
-
         </>
     )
 }

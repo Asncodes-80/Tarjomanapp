@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
     View,
     Text,
@@ -13,13 +13,13 @@ import {
 } from 'react-native';
 
 import SyntaxHighlighter from 'react-native-syntax-highlighter'
-import { hopscotch, darcula, twilight, duotoneForest } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import {hopscotch, darcula, twilight, duotoneForest} from 'react-syntax-highlighter/dist/esm/styles/prism';
 import SegmentedControlTab from 'react-native-segmented-control-tab'
-import { LinearGradient } from 'expo-linear-gradient';
-import { Ionicons, MaterialCommunityIcons, Feather } from '@expo/vector-icons';
+import {LinearGradient} from 'expo-linear-gradient';
+import {Ionicons, MaterialCommunityIcons, Feather} from '@expo/vector-icons';
 
 
-const SetResult = ({ results, colorGra1, colorGra2, segmentShow }) => {
+const SetResult = ({results, colorGra1, colorGra2, segmentShow, step, synHl}) => {
     I18nManager.allowRTL(false);
     const [existChecked, setExistCheck] = useState('');// to next update
     const [index, setIndex] = useState(0);
@@ -32,7 +32,7 @@ const SetResult = ({ results, colorGra1, colorGra2, segmentShow }) => {
         await Clipboard.setString(codeTxt);
         Alert.alert('',
             'دستور مورد نظر کاپی شد', [
-            { text: 'باشه' }])
+                {text: 'باشه'}])
     };
     // share code
     const onShare = async (codeTxt) => {
@@ -59,7 +59,7 @@ const SetResult = ({ results, colorGra1, colorGra2, segmentShow }) => {
             await AsyncStorage.setItem(key, value);
             Alert.alert('ذخیره شد.', 'دستور مورد نظر شما با موفقیت ذخیره شد');
 
-        } catch{
+        } catch {
             console.log('catch');
         }
     }
@@ -69,12 +69,13 @@ const SetResult = ({ results, colorGra1, colorGra2, segmentShow }) => {
             <SegmentedControlTab
                 values={["Code", "توضیحات"]}
                 selectedIndex={index}
-                tabsContainerStyle={{ 
-                    marginTop: 15, 
-                    marginHorizontal: 20, 
-                    borderColor: 'red', 
-                    marginBottom: 50, 
-                    display: `${segmentShow}` }}
+                tabsContainerStyle={{
+                    marginTop: 15,
+                    marginHorizontal: 20,
+                    borderColor: 'red',
+                    marginBottom: 50,
+                    display: `${segmentShow}`
+                }}
                 onTabPress={(handleChangeIndex) => {
                     setIndex(handleChangeIndex)
                     if (index == 0) {
@@ -87,7 +88,7 @@ const SetResult = ({ results, colorGra1, colorGra2, segmentShow }) => {
                         setCode('flex');
                         setDes('none');
                     }
-                }} />
+                }}/>
 
 
             <FlatList
@@ -97,7 +98,7 @@ const SetResult = ({ results, colorGra1, colorGra2, segmentShow }) => {
                 style={{
                     marginTop: 0,
                 }}
-                renderItem={({ item }) => {
+                renderItem={({item}) => {
                     //  useEffect(()=>{
                     /*  const checkExistFun = async() =>{
                       const existCheck= await AsyncStorage.getItem(`${item.CommandId}`);
@@ -114,17 +115,15 @@ const SetResult = ({ results, colorGra1, colorGra2, segmentShow }) => {
                         if (item.CommandCode.length != null && item.CommandCode.length > 200) {
                             setSize(450)
                         }
-                    }
-                    catch{
+                    } catch {
                         setSize(500)
                     }
                     return (
-                        <View style={{ alignSelf: 'center', flexDirection: 'column' }}>
+                        <View style={{alignSelf: 'center', flexDirection: 'column'}}>
                             <LinearGradient
                                 style={{
                                     width: Dimensions.get('window').width - 40,
                                     height: useSize,
-                                    borderRadius: 10,
                                     marginHorizontal: 10,
                                     flexDirection: 'column',
                                     borderRadius: 10,
@@ -138,7 +137,6 @@ const SetResult = ({ results, colorGra1, colorGra2, segmentShow }) => {
                                     shadowOpacity: 0.25,
                                     shadowRadius: 3.84,
                                     elevation: 8,
-                                    borderRadius: 10
                                 }} colors={[`#2B2B2B`, `#3B3B3B`]}>
 
                                 {/* Long press for copy code */}
@@ -148,13 +146,13 @@ const SetResult = ({ results, colorGra1, colorGra2, segmentShow }) => {
                                     <SyntaxHighlighter
                                         language='javascript'
                                         highlighter={"prism" || "hljs"}
-                                        style={twilight}
-                                        fontSize={15}
+                                        style={synHl}
+                                        fontSize={step}
                                     >
                                         {item.CommandCode}
                                     </SyntaxHighlighter>
                                 </TouchableOpacity>
-                                
+
                                 {/* Copy and Share */}
                                 <View style={{
                                     width: '20%',
@@ -168,12 +166,15 @@ const SetResult = ({ results, colorGra1, colorGra2, segmentShow }) => {
                                 }}>
                                     {/* save code */}
                                     <TouchableOpacity
-                                        onPress={() => {saveCode(`${item.CommandId}`, item.CommandCode)}}
-                                        style={{ 
-                                            alignSelf: 'flex-end', 
-                                            marginHorizontal: 10 }}>
+                                        onPress={() => {
+                                            saveCode(`${item.CommandId}`, item.CommandCode)
+                                        }}
+                                        style={{
+                                            alignSelf: 'flex-end',
+                                            marginHorizontal: 10
+                                        }}>
 
-                                        <Ionicons name="ios-bookmark" size={34} color="white" />
+                                        <Ionicons name="ios-bookmark" size={34} color="white"/>
 
                                     </TouchableOpacity>
 
@@ -185,35 +186,37 @@ const SetResult = ({ results, colorGra1, colorGra2, segmentShow }) => {
                                             name="share"
                                             size={24}
                                             color="white"
-                                            style={{ marginLeft: 10 }}
+                                            style={{marginLeft: 10}}
                                         />
                                     </TouchableOpacity>
 
-                                    <TouchableOpacity onPress={() => { writeToClipboard(item.CommandCode)}}>
+                                    <TouchableOpacity onPress={() => {
+                                        writeToClipboard(item.CommandCode)
+                                    }}>
 
                                         <MaterialCommunityIcons
                                             name="content-copy"
                                             size={24}
                                             color="white"
-                                            style={{ marginLeft: 20 }}
+                                            style={{marginLeft: 20}}
                                         />
 
                                     </TouchableOpacity>
                                 </View>
                             </LinearGradient>
 
-                            <Text 
-                            style={{
-                                alignSelf: 'flex-end',
-                                alignContent: 'flex-end',
-                                textAlign: 'right',
-                                fontSize: 20,
-                                marginTop: 30,
-                                marginHorizontal: 30,
-                                fontWeight: 'bold',
-                                color: 'white',
-                                display: `${des}`
-                            }}>توضیحاتی در مورد دستور شما</Text>
+                            <Text
+                                style={{
+                                    alignSelf: 'flex-end',
+                                    alignContent: 'flex-end',
+                                    textAlign: 'right',
+                                    fontSize: 20,
+                                    marginTop: 30,
+                                    marginHorizontal: 30,
+                                    fontWeight: 'bold',
+                                    color: 'white',
+                                    display: `${des}`
+                                }}>توضیحاتی در مورد دستور شما</Text>
 
                             <LinearGradient
                                 style={{
@@ -239,7 +242,7 @@ const SetResult = ({ results, colorGra1, colorGra2, segmentShow }) => {
                                 >{item.CommandDescription}</Text>
                             </LinearGradient>
                         </View>)
-                }} />
+                }}/>
         </>
     )
 }
