@@ -49,25 +49,16 @@ const TarPage = ({
 
     const [results, setResults] = useState([]);
 
-    const [step, setStepper] = useState();
+    const [step, setStepper] = useState(8);
+
     const [synHl, setSynHL] = useState();
 
-
-    const mainScreenFun = async () => {
-        setMainScreenShow('flex');
-        setSavedScreen('none');
-        setSettingScreen('none');
-        // Colors
-        setMainScreenColor('#0A65D4');
-        setSavedScreenColor('#95989A');
-        setSettingScreenColor('#95989A');
-        setColorStatus('light-content');
-
+    // to get default font
+    useEffect(() => {
         const checkStyle = async () => {
-            const fontSizeVal = parseInt(await AsyncStorage.getItem("font"));
             const colorThemeVal = parseInt(await AsyncStorage.getItem("codeTheme"));
+            const fontSizeVal = parseInt(await AsyncStorage.getItem("font"));
             setStepper(fontSizeVal);
-
             // switch for adopting number to code theme
             switch (colorThemeVal) {
                 case 1: setSynHL(duotoneLight);
@@ -85,7 +76,36 @@ const TarPage = ({
             }
         }
         checkStyle();
+    }, [])
 
+
+    const mainScreenFun = async () => {
+        setMainScreenShow('flex');
+        setSavedScreen('none');
+        setSettingScreen('none');
+        // Colors
+        setMainScreenColor('#0A65D4');
+        setSavedScreenColor('#95989A');
+        setSettingScreenColor('#95989A');
+        setColorStatus('light-content');
+        const colorThemeVal = parseInt(await AsyncStorage.getItem("codeTheme"));
+        const fontSizeVal = parseInt(await AsyncStorage.getItem("font"));
+        setStepper(fontSizeVal);
+        // switch for adopting number to code theme
+        switch (colorThemeVal) {
+            case 1: setSynHL(duotoneLight);
+                break;
+            case 2: setSynHL(darcula);
+                break;
+            case 3: setSynHL(twilight);
+                break;
+            case 4: setSynHL(atomDark);
+                break;
+            case 5: setSynHL(ghcolors);
+                break;
+            case 6: setSynHL(prism);
+                break;
+        }
     }
     const SavedScreenFun = async () => {
         setMainScreenShow('none');

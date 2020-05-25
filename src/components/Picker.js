@@ -16,16 +16,16 @@ const PickerScreen = ({navigation}) => {
         {
             themeId: 1,
             cmdCode: '\'void main() {\\n print(`سلام دنیا`)\\n }\'',
-            styles: darcula,
-            themeName: 'darcula',
-            codeTheme: '2'
+            styles: duotoneLight,
+            themeName: 'duotoneLight',
+            codeTheme: '1'
         },
         {
             themeId: 2,
             cmdCode: '\'void main() {\\n print(`سلام دنیا`)\\n }\'',
-            styles: duotoneLight,
-            themeName: 'duotoneLight',
-            codeTheme: '1'
+            styles: darcula,
+            themeName: 'darcula',
+            codeTheme: '2'
         },
         {
             themeId: 3,
@@ -70,7 +70,7 @@ const PickerScreen = ({navigation}) => {
             <FlatList
                 vertical
                 data={codeDataStyle}
-                keyExtractor={code => code.id}
+                keyExtractor={code => code.themeId}
                 renderItem={({item}) => {
                     return (
                         <View style={styles.codePlace}>
@@ -80,7 +80,7 @@ const PickerScreen = ({navigation}) => {
                             }}>
                                 <SyntaxHighlighter
                                     language='javascript'
-                                    highlighter={"prism" || "hljs"}
+                                    highlighter={"prism"}
                                     style={item.styles}
                                     borderRadius={10}
                                     width={Dimensions.get('window').width - 30}

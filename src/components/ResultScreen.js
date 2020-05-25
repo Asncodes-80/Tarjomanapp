@@ -82,7 +82,7 @@ const ResultScreen = ({ navigation }) => {
 
                     setResults(response.data);
 
-                    if (results === []) {
+                    if (results == []) {
                         navigation.navigate('index')
                         Alert.alert("خطا در هنگام جست و جو", "دیتابیس اررور!");
                     }
@@ -135,7 +135,7 @@ const ResultScreen = ({ navigation }) => {
                 }}><WaveIndicator color="#F954DE" size={50} /></View> : null
             }
             <SetResult 
-                results={results} 
+                results={results !== null? results:"Error"}
                 colorGra1={colorGra1} 
                 colorGra2={colorGra2} 
                 segmentShow={segmentShow}
