@@ -1,5 +1,14 @@
 import React from 'react';
-import {View, Text, StyleSheet, Dimensions, FlatList, TouchableOpacity, AsyncStorage, Alert, NativeModules} from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet,
+    Dimensions,
+    FlatList,
+    TouchableOpacity,
+    AsyncStorage,
+    Alert,
+    NativeModules} from 'react-native';
 import CodePush from 'react-native-code-push'
 import SyntaxHighlighter from 'react-native-syntax-highlighter'
 import {

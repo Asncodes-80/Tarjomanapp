@@ -126,19 +126,43 @@ const TarPage = ({
         //         console.log(e);
         //       });
         //   });
-        try {
-            const keys = await AsyncStorage.getAllKeys()
-            const itemsArray = await AsyncStorage.multiGet(keys)
-            let object = {}
-            itemsArray.map(item => {
-                object[`${item[0]}`] = {inCode: `${item[1]}`}
-                //object[`{code :${item[0]}}`] = item[1]
-            })
-            console.log(object)
-            setResults(object);
-        } catch (error) {
-            console.log(error, 'error')
-        }
+        // try {
+        //     const keys = await AsyncStorage.getAllKeys()
+        //     const itemsArray = await AsyncStorage.multiGet(keys)
+        //     let object = {}
+        //     itemsArray.map(item => {
+        //         object[`${item[0]}`] = {inCode: `${item[1]}`}
+        //         //object[`{code :${item[0]}}`] = item[1]
+        //     })
+        //     console.log(object)
+        //     setResults(object);
+        // } catch (error) {
+        //     console.log(error, 'error')
+        // }
+
+
+        // async componentDidMount() {
+        //
+        //     listData = [ ];
+        //     let keys = await AsyncStorage.getAllKeys();
+        //     keys.forEach(async function(inKey) {
+        //         const person = await AsyncStorage.getItem(inKey);
+        //         person.key = inKey;
+        //         listData.push(person);
+        //     });
+        //
+        //     //listData.push({ key : 1, firstName : "Jeff", lastName : "Tate", middleInitial : "W", relationship : "friend" });
+        //
+        // };
+
+
+        // const keys = await AsyncStorage.getAllKeys();
+        // keys.forEach(async function(inKey){
+        //     const code = await AsyncStorage.getItem(inKey);
+        //     code.key = inKey;
+        //     setResults(results+code);
+        // })
+
     }
     const SettingScreenFun = () => {
         setMainScreenShow('none');
@@ -147,7 +171,7 @@ const TarPage = ({
         // Colors
         setMainScreenColor('#95989A');
         setSavedScreenColor('#95989A');
-        setSettingScreenColor('#C1C3F3');
+        setSettingScreenColor('#000');
         setColorStatus('dark-content');
     }
 

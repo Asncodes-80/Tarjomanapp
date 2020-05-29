@@ -8,12 +8,7 @@ const WelcomeScreen = ({navigation}) =>{
 
     //function for go to main screen and ending welcome screen
     const endTimeForWelcome = async() =>{
-        // to specified, what code theme i chose by default
-        // duotoneLight -> n.1
-        // darcula -> n.2 by default
-        // twilight -> n.3
-        await AsyncStorage.setItem("codeTheme", "1");
-        await AsyncStorage.setItem("font", "18");
+
         // for checking out the welcome screen page once
         await AsyncStorage.setItem("appear","true");
         navigation.navigate('index');

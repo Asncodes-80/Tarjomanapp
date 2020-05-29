@@ -6,11 +6,11 @@ import {
     StyleSheet,
     TouchableOpacity,
     ScrollView,
-    Image,
+    Platform,
     StatusBar,
     Dimensions,
     I18nManager,
-    isRTL
+    isRTL, AsyncStorage
 } from 'react-native';
 import {
     darcula,
@@ -20,6 +20,7 @@ import {
     ghcolors,
     prism
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
 I18nManager.allowRTL(false);
 I18nManager.forceRTL(false);
 I18nManager.isRTL = 'false'
@@ -42,9 +43,37 @@ const MainScreen = ({
                         themeBackChoser,
                         themeOfStatusBar,
                         statusColor,
-                        step,
-                        synHl
                     }) => {
+
+    const [synHl, setSynHL] = useState();
+    const [step, setStepper] = useState();
+    // to get default font
+    useEffect(() => {
+        const checkStyle = async () => {
+            const colorThemeVal = parseInt(await AsyncStorage.getItem("codeTheme"));
+            const fontSizeVal = parseInt(await AsyncStorage.getItem("font"));
+            setStepper(fontSizeVal);
+            // switch for adopting number to code theme
+            switch (colorThemeVal) {
+                case 1: setSynHL(duotoneLight);
+                    break;
+                case 2: setSynHL(darcula);
+                    break;
+                case 3: setSynHL(twilight);
+                    break;
+                case 4: setSynHL(atomDark);
+                    break;
+                case 5: setSynHL(ghcolors);
+                    break;
+                case 6: setSynHL(prism);
+                    break;
+            }
+        }
+        checkStyle();
+    }, [])
+
+
+
 
     //State and Var placement
     //to get name of programming language to EN and For database set
@@ -81,7 +110,7 @@ const MainScreen = ({
                     width: Dimensions.get('window').width - 0,
                     height: 250,
                     borderRadius: 40,
-                    marginTop: -40
+                    marginTop: Platform.OS === 'ios' ? -10 : -40,
                 }} colors={[`#F954DE`, `#4F0BA8`]}>
 
                 <Text style={{
@@ -120,7 +149,8 @@ const MainScreen = ({
                         width: 160,
                         height: 40,
                         marginTop: 40,
-                        marginHorizontal: 15
+                        marginHorizontal: 15,
+                        marginRight: 30
                     }}>
                     <Text style={styles.choseLanguageText}>انتخاب زبان</Text>
                 </TouchableOpacity>
@@ -157,7 +187,7 @@ const MainScreen = ({
                     marginTop: 30,
                     marginHorizontal: -15
                 }}/>
-                <ABitofInctance step={step} synHl={synHl}/>
+                <ABitofInctance step={step===null? 14: step} synHl={synHl}/>
 
             </ScrollView>
 
@@ -186,7 +216,7 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         alignContent: 'flex-start',
         textAlign: 'left',
-        marginLeft: -10
+        marginLeft: 10
     },
     scrollViewStyle: {
         justifyContent: 'flex-end',

@@ -167,7 +167,7 @@ const SetResult = ({results, colorGra1, colorGra2, segmentShow, step, synHl}) =>
                                     {/* save code */}
                                     <TouchableOpacity
                                         onPress={() => {
-                                            saveCode(`${item.CommandId}`, item.CommandCode)
+                                            saveCode(`${item.CommandId}`, `{code: ${item.CommandCode}}`)
                                         }}
                                         style={{
                                             alignSelf: 'flex-end',

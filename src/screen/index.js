@@ -33,9 +33,13 @@ const index = ({navigation}) =>{
         const componentShower = async() =>{
             const value = await AsyncStorage.getItem("appear");
             if(value === null){
+                // to specified, what code theme i chose by default
+                // duotoneLight -> n.1
+                // darcula -> n.2 by default
+                // twilight -> n.3
+                await AsyncStorage.setItem("codeTheme", "1");
+                await AsyncStorage.setItem("font", "18");
                 navigation.navigate('WelcomeScreen');
-                
-
             }
         }
         componentShower();

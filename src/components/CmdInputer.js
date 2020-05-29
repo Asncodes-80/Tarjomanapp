@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
         alignItems:'center',
         alignContent:'center',
         marginTop:30,
+        backgroundColor: 'transparent'
     },
 });
 

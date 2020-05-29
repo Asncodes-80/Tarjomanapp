@@ -16,6 +16,14 @@ const SettingScreen = ({navigation}) => {
     I18nManager.allowRTL(false);
     return (
         <>
+            <View style={styles.SettingTxt}>
+                <Text style={{
+                    textAlign: 'right',
+                    fontSize: 24,
+                      alignSelf: 'flex-end',
+                    fontWeight: 'bold'}}>تنظیمات</Text>
+            </View>
+
             <View style={styles.mainContent}>
                 <TouchableOpacity onPress={() => {
                     navigation.navigate('AppearanceScreen');
@@ -49,9 +57,10 @@ const SettingScreen = ({navigation}) => {
 const styles = StyleSheet.create({
     mainContent: {
         flexDirection: 'column',
-        marginTop: Platform.OS === 'ios' ? 100 : 50,
+        marginTop: 40,
         alignSelf: 'center',
-        alignItems: 'flex-end'
+        alignItems: 'flex-end',
+
     },
     appearanceSection: {
         flexDirection: 'row-reverse',
@@ -70,6 +79,11 @@ const styles = StyleSheet.create({
     detailVerText: {
         color: '#75757A',
         marginBottom: 5
-    }
+    },
+    SettingTxt:{
+        alignItems: 'flex-end',
+        marginHorizontal: 30,
+        marginTop: Platform.OS==='ios'? 80: 80,
+    },
 })
 export default SettingScreen;

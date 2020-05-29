@@ -19,33 +19,9 @@ import {
     prism
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-const ABitofInstance = ({step}) => {
+const ABitofInstance = ({step, synHl}) => {
 
     I18nManager.allowRTL(false);
-
-    const [synHl, setSynHL] = useState();
-    // to get default font
-    useEffect(() => {
-        const checkStyle = async () => {
-            const colorThemeVal = parseInt(await AsyncStorage.getItem("codeTheme"));
-            // switch for adopting number to code theme
-            switch (colorThemeVal) {
-                case 1: setSynHL(duotoneLight);
-                    break;
-                case 2: setSynHL(darcula);
-                    break;
-                case 3: setSynHL(twilight);
-                    break;
-                case 4: setSynHL(atomDark);
-                    break;
-                case 5: setSynHL(ghcolors);
-                    break;
-                case 6: setSynHL(prism);
-                    break;
-            }
-        }
-        checkStyle();
-    }, [])
 
 
     //Create data for important command to search
@@ -69,7 +45,7 @@ const ABitofInstance = ({step}) => {
                 data={instance}
                 keyExtractor={(result) => result.key}
                 vertical
-                style={{marginTop: 20, marginBottom: 100, marginHorizontal: -10}}
+                style={{marginTop: 20, marginBottom: 100}}
                 renderItem={({item}) => {
                     return (
                         <View>
@@ -81,18 +57,19 @@ const ABitofInstance = ({step}) => {
                                 fontSize: 18,
                                 color: 'black'
                             }}>{item.title}</Text>
+                            <View style={{marginHorizontal: 0}}>
+                                <SyntaxHighlighter
+                                    language='javascript'
+                                    highlighter={"prism" || "hljs"}
+                                    style={synHl}
+                                    fontSize={step || 18 }
+                                >
+                                    {item.cmd}
+                                </SyntaxHighlighter>
+                            </View>
 
-                            <SyntaxHighlighter
-                                language='javascript'
-                                highlighter={"prism" || "hljs"}
-                                style={synHl}
-                                fontSize={step}>
-                                {item.cmd}
-                            </SyntaxHighlighter>
                         </View>
-                    )
-                }}
-            />
+                    )}} />
         </>
     )
 }

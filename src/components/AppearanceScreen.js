@@ -7,7 +7,8 @@ import {
     TouchableOpacity,
     ScrollView,
     AsyncStorage,
-    Button} from 'react-native'
+    Button,
+    NativeModules} from 'react-native'
 import UIStepper from 'react-native-ui-stepper'
 import {Ionicons, MaterialCommunityIcons} from '@expo/vector-icons';
 import SyntaxHighlighter from 'react-native-syntax-highlighter'
@@ -63,6 +64,7 @@ const AppearanceScreen = ({navigation}) => {
     // save changes
     const defaultFont = async (value) => {
         await AsyncStorage.setItem("font", String(value));
+        NativeModules.DevSettings.reload();
     }
 
     return (
