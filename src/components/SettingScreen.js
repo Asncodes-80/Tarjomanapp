@@ -41,7 +41,7 @@ const SettingScreen = ({navigation}) => {
             <View style={styles.detailVer}>
                 <Text
                     style={styles.detailVerText}>{Platform.OS === 'ios' ? "ترجمان نسخه آی او اس" : "ترجمان نسخه اندروید"}</Text>
-                <Text style={styles.detailVerText}>ترجمان ورژن 3.5</Text>
+                <Text style={styles.detailVerText}>{Platform.OS === 'ios' ? "ترجمان ورژن 0.7.5.0iPx64Alpha2020.29.02" : "0.7.5.0x64Alpha20.29.02"}</Text>
             </View>
         </>
     )
