@@ -117,15 +117,15 @@ const TarPage = ({
         setSettingScreenColor('#95989A');
         setColorStatus('dark-content');
 
-        // AsyncStorage.getAllKeys().then((key) => {
-        //     return AsyncStorage.multiGet(key)
-        //       .then((result) => {
-        //         setResults((result));
-        //         console.log(results);
-        //       }).catch((e) =>{
-        //         console.log(e);
-        //       });
-        //   });
+        AsyncStorage.getAllKeys().then((key) => {
+            return AsyncStorage.multiGet(key)
+              .then((result) => {
+                setResults(JSON.parse(result));
+
+              }).catch((e) =>{
+                console.log(e);
+              });
+          });
         // try {
         //     const keys = await AsyncStorage.getAllKeys()
         //     const itemsArray = await AsyncStorage.multiGet(keys)

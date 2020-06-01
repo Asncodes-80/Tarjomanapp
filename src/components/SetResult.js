@@ -56,7 +56,7 @@ const SetResult = ({results, colorGra1, colorGra2, segmentShow, step, synHl}) =>
     // Save data to favorite code
     const saveCode = async (key, value) => {
         try {
-            await AsyncStorage.setItem(key, value);
+            await AsyncStorage.setItem(key, JSON.stringify(value));
             Alert.alert('ذخیره شد.', 'دستور مورد نظر شما با موفقیت ذخیره شد');
 
         } catch {

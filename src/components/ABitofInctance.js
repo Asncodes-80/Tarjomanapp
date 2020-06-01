@@ -62,14 +62,15 @@ const ABitofInstance = ({step, synHl}) => {
                                     language='javascript'
                                     highlighter={"prism" || "hljs"}
                                     style={synHl}
-                                    fontSize={step || 18 }
+                                    fontSize={step || 18}
                                 >
                                     {item.cmd}
                                 </SyntaxHighlighter>
                             </View>
 
                         </View>
-                    )}} />
+                    )
+                }}/>
         </>
     )
 }

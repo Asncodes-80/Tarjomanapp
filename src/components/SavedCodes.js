@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
     View,
     Text,
@@ -9,12 +9,12 @@ import {
     StyleSheet,
     Dimensions,
     I18nManager,
-    Platform} from 'react-native'
+    Platform,
+    Alert} from 'react-native'
 
 const SavedCodes = ({results, statusColor}) =>{
     I18nManager.allowRTL(false);
-    // console.log(results);
-    console.log(results)
+    console.log(results);
     return(
         <>
             <StatusBar barStyle={statusColor}/>

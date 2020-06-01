@@ -44,8 +44,6 @@ const index = ({navigation}) =>{
         }
         componentShower();
 
-
-        
         return(
             <AppearanceProvider>
                  <TarPage
@@ -58,9 +56,7 @@ const index = ({navigation}) =>{
                      themeOfStatusBar={themeOfStatusBar}
                  />
             </AppearanceProvider>
- 
      )
-
 }
 const styles = StyleSheet.create({
     container:{

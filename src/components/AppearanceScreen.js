@@ -122,7 +122,6 @@ const AppearanceScreen = ({navigation}) => {
                     <Button title="ذخیره تغییرات" color="green" onPress={() => {
                         defaultFont(step)
                     }}/>
-
                 </View>
             </ScrollView>
         </View>
