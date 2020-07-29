@@ -24,11 +24,6 @@ width="200"
 Tarjoman: is simple code translator like Google Translator, to translate your word you want to programming language.
 sorry, for now we developed Tarjoman to persian language for Iranian people.
 
-**You can see some screenshots from Tarjoman app:**
-
-![TarjomanHomeScreen](https://github.com/AlirezaSoltaniNeshan/Tarjomanapp/blob/master/images/TarjomanCodeDescription.png)
-![TarjomanCodeScreen](https://github.com/AlirezaSoltaniNeshan/Tarjomanapp/blob/master/images/TarjomanCodepage.png)
-![description](https://github.com/AlirezaSoltaniNeshan/Tarjomanapp/blob/master/images/TarjomanHomePage.png)
 ## Section#1
 you can download Tarjoman app for Android or iOS from our site 
 http://tarjomanapp.ir/
