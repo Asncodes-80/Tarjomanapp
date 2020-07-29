@@ -1,3 +1,18 @@
+<p align="center">
+<img
+alt="ReactNative.js"
+src="https://www.codeplusinfo.com/wp-content/uploads/2020/02/react-native-logo-e1581157043920.png"
+width="200"
+/>
+</p>
+
+
+[![npm Version][npm-image]][npm-url]
+[![CI][actions-image]][actions-url]
+[![Dependency Status][david-image]][david-url]
+[![Code Style: Google][gts-image]][gts-url]
+
+
 # Welcome to Tarjoman app
 * This is cross platfrom app and you can run it on your Android / iOS devices or apple watches, even in a web browser.
 * Beginner and advance programmers can use this app easlily!
@@ -69,3 +84,16 @@ export default axios.create({
  ## License
 
 Copyright © 2020 Alireza Soltani Neshan
+
+[actions-image]: https://github.com/google/js-green-licenses/workflows/ci/badge.svg
+[actions-url]: https://github.com/google/js-green-licenses/actions
+[codecov-image]: https://codecov.io/gh/google/js-green-licenses/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/google/js-green-licenses
+[david-image]: https://david-dm.org/google/js-green-licenses.svg
+[david-url]: https://david-dm.org/google/js-green-licenses
+[gts-image]: https://img.shields.io/badge/code%20style-google-blueviolet.svg
+[gts-url]: https://github.com/google/gts
+[npm-image]: https://img.shields.io/npm/v/js-green-licenses.svg
+[npm-url]: https://npmjs.org/package/js-green-licenses
+[snyk-image]: https://snyk.io/test/github/google/js-green-licenses/badge.svg
+[snyk-url]: https://snyk.io/test/github/google/js-green-licenses
